@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regolamento Fantacalcio Lega Quadraro</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8; /* Light blue-gray background */
+            color: #263238; /* Darker text */
+            line-height: 1.6;
+        }
+        .main-container {
+            background-color: #ffffff;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+        .header-bg-custom {
+            /* Using a combination of white background and a tricolor border */
+            background-color: #ffffff;
+            border-bottom-width: 8px; /* Simulate a band */
+            border-image: linear-gradient(to right, #4CAF50 33.3%, #ffffff 33.3%, #ffffff 66.6%, #F44336 66.6%) 1; /* Green, White, Red */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        .accordion-button {
+            background-color: #ffffff; /* White background for buttons */
+            color: #333333; /* Dark gray text */
+            border-radius: 0.75rem; /* More rounded */
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid #e0e0e0; /* Light gray border */
+            font-weight: 700; /* Bold text */
+        }
+        .accordion-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(76, 175, 80, 0.05), rgba(76, 175, 80, 0.2)); /* Light green shimmer */
+            transition: all 0.5s ease;
+            z-index: 1;
+        }
+        .accordion-button:hover::before {
+            left: 100%;
+        }
+        .accordion-button:hover {
+            background-color: #e8f5e9; /* Very light green on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.6s ease-out, padding 0.6s ease-out;
+            background-color: #fcfcfc; /* Off-white for content */
+            border: 1px solid #e0e0e0;
+            border-top: none;
+            border-radius: 0 0 0.75rem 0.75rem;
+            padding: 0 1.5rem; /* Start with no vertical padding */
+        }
+        .accordion-content.active {
+            max-height: 1500px; /* Increased for potentially longer content */
+            padding: 1rem 1.5rem; /* Apply padding when active */
+            transition: max-height 0.8s ease-in, padding 0.8s ease-in;
+        }
+        .arrow-icon {
+            margin-left: 0.75rem;
+            color: #B71C1C; /* Dark red for arrow */
+            font-size: 1rem;
+        }
+        .revision-note {
+            background-color: #ffebee; /* Very light red for notes */
+            border-left: 5px solid #F44336; /* Red border */
+            color: #B71C1C; /* Dark red text */
+            padding: 0.75rem 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+            font-size: 0.9rem;
+        }
+        .list-disc li, .list-circle li, .list-decimal li {
+            margin-bottom: 0.5rem;
+        }
+        .text-highlight {
+            color: #D32F2F; /* Red for penalties */
+            font-weight: 600;
+        }
+        .text-accent {
+            color: #388E3C; /* Dark green for key values */
+            font-weight: 600;
+        }
+        .icon-color-green { color: #388E3C; }
+        .icon-color-red { color: #D32F2F; }
+        .icon-color-yellow { color: #FFC107; }
+        .icon-color-purple { color: #8E24AA; }
+        .icon-color-blue { color: #1976D2; }
+        .icon-color-gray { color: #546E7A; }
+    </style>
+</head>
+<body class="p-4 sm:p-6 md:p-8">
+    <div class="max-w-4xl mx-auto main-container rounded-3xl overflow-hidden shadow-2xl">
+        <!-- Header -->
+        <header class="header-bg-custom p-6 sm:p-8 rounded-t-3xl text-center relative overflow-hidden">
+            <h1 class="text-3xl sm:text-5xl font-extrabold mb-2 text-gray-800" style="font-family: 'Montserrat', sans-serif; text-shadow: 1px 1px 3px rgba(0,0,0,0.1);">REGOLAMENTO INTEGRATIVO</h1>
+            <h2 class="text-xl sm:text-3xl font-semibold opacity-90 text-gray-700" style="font-family: 'Montserrat', sans-serif; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">LEGAQUADRARO - STAGIONE 2025/2026</h2>
+            <p class="text-sm sm:text-base opacity-80 mt-3 italic text-gray-600">v.1.0 - Redatto da: Andrea Martini</p>
+        </header>
+
+        <!-- Main Content - Accordion Sections -->
+        <main class="p-4 sm:p-6 md:p-8">
+
+            <!-- Section: Iscrizione e Asta Iniziale -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-coins mr-3 icon-color-green"></i> 1. Iscrizione e Asta Iniziale</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc pl-5 py-4 space-y-3 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Quota di Iscrizione:</p>
+                            <p>La quota, pari a <strong class="text-accent">100 Euro</strong>, deve essere pagata entro e non oltre il <strong class="text-accent">20 Agosto 2025</strong>.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Data Asta:</p>
+                            <p>L'asta è fissata per il <strong class="text-accent">10 Settembre 2025</strong>. Orario e sede verranno comunicati in seguito.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Gestione Crediti:</p>
+                            <ul class="list-circle pl-5 space-y-1">
+                                <li>La base d'asta per ogni calciatore è sempre <strong class="text-accent">1 FantaMilione</strong>.</li>
+                                <li>Ogni squadra ha a disposizione <strong class="text-accent">500 FantaMilioni</strong> per il mercato iniziale, con un'integrazione di <strong class="text-accent">25 milioni</strong> aggiuntivi il <strong class="text-accent">1° Gennaio</strong>.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Penalità per Sforamento Crediti:</p>
+                            <p>Se si sforano i crediti durante l'asta, si applicano due scenari:</p>
+                            <ul class="list-circle pl-5 space-y-1">
+                                <li>
+                                    <p class="font-medium">Errore notato subito:</p>
+                                    <p>Il calciatore viene rimesso all'asta. Il presidente che ha sforato non può partecipare alla nuova asta per quel giocatore.</p>
+                                </li>
+                                <li>
+                                    <p class="font-medium">Errore notato in seguito:</p>
+                                    <p>La squadra riceverà <strong class="text-highlight">1 punto di penalizzazione</strong> in classifica per ogni credito sforato (fino a un massimo di <strong class="text-highlight">15 punti</strong>), gli scambi in entrata e in uscita saranno bloccati e la squadra potrà acquistare solo gli svincolati residui dall'asta di riparazione.</p>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Gestione Rosa e Svincoli -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-users-line mr-3 icon-color-green"></i> 2. Gestione Rosa e Svincoli</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc pl-5 py-4 space-y-3 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Numero Giocatori:</p>
+                            <p>Non è possibile avere in rosa un numero di calciatori inferiore a quello previsto dal regolamento di Fantagazzetta. Dalla stagione 2024/2025, la rosa portieri è ampliata a <strong class="text-accent">4 slot</strong>.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Svincoli:</p>
+                            <p>È possibile svincolare calciatori nelle <strong class="text-accent">24 ore precedenti l'asta di riparazione</strong> (fino a 6 ore prima). Per farlo, è necessario presentare una lista con i giocatori da tagliare, senza scendere sotto la soglia minima di <strong class="text-accent">18 calciatori totali</strong>. Verrà accreditata una somma di crediti pari al <strong class="text-accent">FantaValore di Fantagazzetta</strong> al momento del taglio.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Indennizzo Calciatori Svincolati/Ceduti:</p>
+                            <ul class="list-circle pl-5 space-y-1">
+                                <li>Un calciatore svincolato dà diritto a un indennizzo pari al suo <strong class="text-accent">FantaValore attuale</strong>.</li>
+                                <li>Nel caso in cui un calciatore venga ceduto all'estero, smetta di giocare o in situazioni analoghe, si ha diritto a un indennizzo pari al <strong class="text-accent">FantaValore</strong> riportato al momento previsto per gli svincoli.</li>
+                            </ul>
+                            <div class="revision-note">
+                                <p class="font-bold">Nota per la revisione:</p>
+                                <p>La formulazione di questo punto potrebbe essere migliorata per maggiore chiarezza.</p>
+                            </div>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Infortuni e Indisponibilità:</p>
+                            <p>In caso di infortunio o altri problemi che rendono un calciatore indisponibile, non è prevista una lista infortunati. Il calciatore sarà semplicemente inutilizzabile.</p>
+                            <div class="revision-note">
+                                <p class="font-bold">Nota per la revisione:</p>
+                                <p>Valutate se volete aggiungere la possibilità di un eventuale taglio e recupero del credito in un momento specifico, come indicato nella vostra bozza originale.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Mercato e Scambi -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-handshake mr-3 icon-color-green"></i> 3. Mercato e Scambi</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc pl-5 py-4 space-y-3 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Scambi:</p>
+                            <p>Sono illimitati, con alcune restrizioni.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Finestre di Mercato:</p>
+                            <p>È possibile scambiare solo nei seguenti periodi:</p>
+                            <ol class="list-decimal pl-5 space-y-1">
+                                <li>Tra la fine della 1ª giornata e le 24 ore prima del primo anticipo della 2ª giornata.</li>
+                                <li>Dal <strong class="text-accent">1° Gennaio</strong> alle 24 ore prima dell'asta di riparazione.</li>
+                                <li>Al termine dell'asta di riparazione e per le successive 24 ore.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Valore Giocatori:</p>
+                            <p>Gli scambi devono avvenire tra giocatori con un valore simile. Il parametro di riferimento è il <strong class="text-accent">FantaValore dell'applicazione</strong>.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Vincoli:</p>
+                            <p>Durante il mercato di riparazione (1° Gennaio - asta di riparazione), un calciatore ceduto non può tornare alla squadra di origine. I prestiti brevi sono vietati. Un calciatore può comunque militare in un numero indefinito di squadre senza altri vincoli.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Competenze e Penalità -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-exclamation-triangle mr-3 icon-color-red"></i> 4. Competenze e Penalità</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc pl-5 py-4 space-y-3 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Mancata Consegna Formazione:</p>
+                            <p>In caso di mancata consegna della formazione, si applicano le seguenti sanzioni:</p>
+                            <ul class="list-circle pl-5 space-y-1">
+                                <li>Verrà schierata la formazione della giornata precedente (se possibile).</li>
+                                <li>Multa di <strong class="text-highlight">5 Euro</strong>.</li>
+                                <li>Sottrazione di punti in classifica pari a quelli ottenuti dalla squadra in difetto.</li>
+                                <li>Alla terza recidiva, il presidente sarà diffidato e la squadra affidata a un <strong class="text-highlight">BOT</strong>. La quota di iscrizione sarà trattenuta integralmente.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Partite Rinviate:</p>
+                            <p>In caso di rinvio di uno o più match a 72 ore dalla data prevista, verranno assegnati <strong class="text-accent">6 politici</strong> a tutti i calciatori delle squadre coinvolte.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Interruzione Campionato:</p>
+                            <p>Il campionato verrà assegnato solo se si è concluso il terzo girone. Le coppe verranno assegnate solo se concluse.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Competizioni -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-trophy mr-3 icon-color-yellow"></i> 5. Competizioni</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc pl-5 py-4 space-y-3 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Campionato:</p>
+                            <p>4 gironi da 9 partite (l'ultimo di 8). Punteggio: <strong class="text-accent">3 punti</strong> per la vittoria, <strong class="text-accent">1</strong> per il pareggio, <strong class="text-accent">0</strong> per la sconfitta.</p>
+                            <p>In caso di sospensione definitiva del campionato di Serie A prima della fine del terzo girone, il titolo verrà assegnato alla squadra <strong class="text-accent">prima in classifica al termine del terzo girone</strong>.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Coppa Quadraro:</p>
+                            <p>Tutte le squadre partecipano a un girone eliminatorio di 4 partite. Le prime 8 accedono a quarti, semifinali e finale. I gol in trasferta valgono doppio in semifinale.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Champions League:</p>
+                            <p>Le prime <strong class="text-accent">5 squadre</strong> del secondo girone si qualificano. Le prime 4 si affrontano in semifinale andata/ritorno e finale secca. La 5ª va in Europa League. I gol in trasferta valgono doppio.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Europa League:</p>
+                            <p>Le seconde <strong class="text-accent">5 squadre</strong> del secondo girone si qualificano. Le prime 3 e la retrocessa dalla CL si affrontano in semifinale andata/ritorno e finale secca. Le due eliminate del girone EL vanno in Conference League.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Conference League:</p>
+                            <p>Le squadre eliminate dal girone di Europa League. Si gioca una finale secca.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Coppa delle Coppe:</p>
+                            <p>Partecipano la vincente del campionato, della Coppa Quadraro, della Champions League e dell'Europa League della stagione 2023/2024.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Montepremi -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-money-bill-wave mr-3 icon-color-green"></i> 6. Montepremi</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <p class="py-4 text-gray-700">Il montepremi è costituito dal <strong class="text-accent">100% delle quote di iscrizione</strong> più le sanzioni incassate:</p>
+                    <ul class="list-disc pl-5 space-y-3 mt-2 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Campionato:</p>
+                            <ul class="list-circle pl-5 space-y-1">
+                                <li>1° classificato: <strong class="text-accent">500 €</strong></li>
+                                <li>2° classificato: <strong class="text-accent">250 €</strong></li>
+                                <li>3° classificato: <strong class="text-accent">100 €</strong></li>
+                            </ul>
+                        </li>
+                        <li><p class="font-semibold">Coppa Quadraro:</p> 1° classificato: <strong class="text-accent">65 €</strong></li>
+                        <li><p class="font-semibold">Champions League:</p> 1° classificato: <strong class="text-accent">65 €</strong></li>
+                        <li><p class="font-semibold">Europa League:</p> 1° classificato: <strong class="text-accent">20 €</strong></li>
+                        <li><p class="font-semibold">Conference League:</p> Non retribuita.</li>
+                        <li><p class="font-semibold">Coppa delle Coppe:</p> <strong class="text-accent">100% delle penalità incassate</strong>.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Section: Disposizioni Finali -->
+            <div class="mb-5 last:mb-0">
+                <button class="accordion-button w-full text-left px-6 py-4 flex justify-between items-center shadow-lg">
+                    <span><i class="fas fa-gavel mr-3 icon-color-gray"></i> 7. Disposizioni Finali</span>
+                    <span class="arrow-icon transform transition-transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                </button>
+                <div class="accordion-content">
+                    <ul class="list-disc pl-5 py-4 space-y-3 text-gray-700">
+                        <li>
+                            <p class="font-semibold">Modificatori:</p>
+                            <p>Tutti i modificatori di Fantagazzetta sono calcolati automaticamente. Non sono ammessi interventi manuali.</p>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Prima dell'Asta:</p>
+                            <p>Il presidente di lega si occuperà di:</p>
+                            <ul class="list-circle pl-5 space-y-1">
+                                <li>Raccogliere le quote.</li>
+                                <li>Riepilogare le regole a voce.</li>
+                                <li>Distribuire il regolamento (cartaceo o digitale).</li>
+                                <li>Rispondere a eventuali dubbi.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            <p class="font-semibold">Buonsenso:</p>
+                            <p>Lo scopo del gioco è divertirsi. Per situazioni non previste, vale il principio del buonsenso, della cortesia e del rispetto tra i partecipanti.</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-[#4CAF50] text-white text-center p-4 rounded-b-3xl text-sm opacity-90">
+            <p>&copy; 2025 LegaQuadraro - Tutti i diritti riservati.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const accordionButtons = document.querySelectorAll('.accordion-button');
+
+            accordionButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.nextElementSibling;
+                    const arrowIcon = button.querySelector('.arrow-icon');
+
+                    // Toggle active class on content
+                    content.classList.toggle('active');
+
+                    // Rotate arrow icon
+                    if (content.classList.contains('active')) {
+                        arrowIcon.style.transform = 'rotate(180deg)';
+                    } else {
+                        arrowIcon.style.transform = 'rotate(0deg)';
+                    }
+
+                    // Close other open accordions
+                    accordionButtons.forEach(otherButton => {
+                        if (otherButton !== button) {
+                            const otherContent = otherButton.nextElementSibling;
+                            const otherArrowIcon = otherButton.querySelector('.arrow-icon');
+                            if (otherContent.classList.contains('active')) {
+                                otherContent.classList.remove('active');
+                                otherArrowIcon.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
